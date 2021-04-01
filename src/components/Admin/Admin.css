@@ -1,0 +1,11 @@
+.Sidebar{
+    height: 100vh;
+    background-color: #28527a;
+    padding: 10px;
+    text-align: center;
+}
+.Sidebar #goToHome{
+    font-weight: 700;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+}

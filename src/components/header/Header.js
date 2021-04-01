@@ -7,18 +7,18 @@ const Header = () => {
         <div >
             <nav className="navbar navbar-expand-sm mt-3">
                 <div className='container'>
-                    <h2 className ="navbar-brand text-dark">GADGETS MART</h2>
-                    
+                    <h2 className="navbar-brand">GADGETS MART</h2>
+
                     <div className="navbar-nav d-flex">
-                       <a href="/home" className="text-dark link">Home</a>
-                       <a href="/orders" className="text-dark link">Orders</a>
-                       <a href="/admin" className="text-dark link">Admin</a>
-                       <a href="/deals" className="text-dark link">Deals</a>
-                       <a href="/login"><button class="btn btn-success link">Login</button></a>
+                        <Link to="/home" className="text-dark link">Home</Link>
+                        <Link to="/orders" className="text-dark link">Orders</Link>
+                        <Link to="/admin" className="text-dark link">Admin</Link>
+                        <Link to="/deals" className="text-dark link">Deals</Link>
+                        <Link to="/login"><button class="btn btn-success link">Login</button></Link>
                     </div>
                 </div>
             </nav>
-            
+
         </div>
     );
 };
