@@ -14,7 +14,7 @@ const Header = () => {
                         <Link to="/orders" className="text-dark link">Orders</Link>
                         <Link to="/admin" className="text-dark link">Admin</Link>
                         <Link to="/deals" className="text-dark link">Deals</Link>
-                        <Link to="/login"><button class="btn btn-success link">Login</button></Link>
+                        <Link to="/login"><button class="btn btn-primary link">Login</button></Link>
                     </div>
                 </div>
             </nav>

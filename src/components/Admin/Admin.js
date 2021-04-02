@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import './Admin.css'
 import AddIcon from '@material-ui/icons/Add';
@@ -12,8 +12,10 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
+import { UserContext } from '../../App';
 
 const Admin = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     let { path, url } = useRouteMatch();
     return (
         <div className="row">
@@ -25,17 +27,18 @@ const Admin = () => {
 
             </div>
             <div className="col-md-9">
-                    <Switch>
-                        <Route path={`${path}/manageProduct`}>
-                            <ManageProduct />
-                        </Route>
-                        <Route path={`${path}/addProduct`}>
-                            <AddProduct />
-                        </Route>
-                        <Route path={`${path}/editProduct`}>
-                            <EditProduct />
-                        </Route>
-                    </Switch>
+                <Switch>
+                    <Route path={`${path}/manageProduct`}>
+                        <ManageProduct ></ManageProduct>
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
+                        <AddProduct />
+                    </Route>
+                    <Route path={`${path}/editProduct`}>
+                        <EditProduct />
+                    </Route>
+                </Switch>
+
             </div>
         </div>
     );

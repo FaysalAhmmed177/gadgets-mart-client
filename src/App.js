@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import NoMatch from './components/NoMatch/NoMatch';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Checkout from './components/Checkout/Checkout';
 
 export const UserContext = createContext();
 
@@ -22,37 +23,41 @@ function App() {
   return (
     <div>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Header />
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Header />
-            <Home />
-          </Route>
-          <Route path="/orders">
-            <Header />
-            <Orders />
-          </Route>
-          <PrivateRoute path="/admin">
-            <Admin />
-          </PrivateRoute>
-          <Route path="/deals">
-            <Header />
-            <Deals />
-          </Route>
-          <Route path="/login">
-            <Header />
-            <Login />
-          </Route>
-          <Route path="*">
-            <Header />
-            <NoMatch />
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Header />
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Header />
+              <Home />
+            </Route>
+            <PrivateRoute path="/orders">
+              <Header />
+              <Orders />
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <Admin />
+            </PrivateRoute>
+            <Route path="/deals">
+              <Header />
+              <Deals />
+            </Route>
+            <Route path="/login">
+              <Header />
+              <Login />
+            </Route>
+            <PrivateRoute path="/checkout/:id">
+              <Header />
+              <Checkout />
+            </PrivateRoute>
+            <Route path="*">
+              <Header />
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Router>
       </UserContext.Provider>
     </div>
   );

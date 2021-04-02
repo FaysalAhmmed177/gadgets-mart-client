@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Products from '../Products/Products';
 
 const Home = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:4200/products')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setProducts(data)
+            })
+    }, [])
+
     return (
         <div className="container">
-            <h1 className="text-primary">I'm from home</h1>
+            <div className="row">
+                {
+                    products.map(product => <Products product={product}></Products>)
+                }
+            </div>
         </div>
     );
 };
