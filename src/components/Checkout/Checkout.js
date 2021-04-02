@@ -6,39 +6,39 @@ const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     console.log(loggedInUser);
     const [product, setProduct] = useState({});
-    const {id} = useParams();
+    const { id } = useParams();
     console.log(id);
 
-    useEffect(()=>{
-        fetch(`http://localhost:4200/product/${id}`)
-        .then(result => result.json())
-        .then(data => {
-            setProduct(data)
-           // console.log(data);
-        })
+    useEffect(() => {
+        fetch(`https://banana-crisp-28043.herokuapp.com/product/${id}`)
+            .then(result => result.json())
+            .then(data => {
+                setProduct(data)
+                // console.log(data);
+            })
     }, [])
 
-    const handleProductOrder = (data)=>{
+    const handleProductOrder = (data) => {
         console.log('Order submitted');
-        const orderDetails = {...loggedInUser, ...product, date: new Date() }
+        const orderDetails = { ...loggedInUser, ...product, date: new Date() }
         console.log(orderDetails);
-        fetch('http://localhost:4200/addOrder', {
-           method: 'POST',
-            headers:{
+        fetch('https://banana-crisp-28043.herokuapp.com/addOrder', {
+            method: 'POST',
+            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(orderDetails)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('server side response', data);
-            alert('Order placed successfully');
-        });
-        
+            .then(res => res.json())
+            .then(data => {
+                console.log('server side response', data);
+                alert('Order placed successfully');
+            });
+
     }
     return (
         <div className="container mt-3">
-            <h1>Checkout</h1><br/>
+            <h1>Checkout</h1><br />
             <table class="table caption-top">
                 <thead>
                     <tr>
@@ -59,7 +59,7 @@ const Checkout = () => {
                     </tr>
                 </tbody>
             </table>
-            <button onClick={handleProductOrder} className="btn btn-success" style={{float: 'right'}}>Checkout</button>
+            <button onClick={handleProductOrder} className="btn btn-success" style={{ float: 'right' }}>Checkout</button>
         </div>
     );
 };

@@ -14,7 +14,7 @@ const AddProduct = () => {
           imageURL: imageURL
       };
        
-        const url = `http://localhost:4200/addProduct`;
+        const url = `https://banana-crisp-28043.herokuapp.com/addProduct`;
         console.log(eventData);
 
         fetch(url, {
