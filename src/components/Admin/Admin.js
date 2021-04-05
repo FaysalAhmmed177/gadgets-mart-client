@@ -19,7 +19,7 @@ const Admin = () => {
     let { path, url } = useRouteMatch();
     return (
         <div className="row">
-            <div className="col-md-3 p-4 Sidebar" style={{height: '100vh'}}>
+            <div className="col-md-3 p-4 Sidebar" style={{height: '150vh'}}>
                 <Link to="/home" className="text-white" id="goToHome">GADGETS MART</Link><br /><br />
                 <Link to={`${url}/manageProduct`} className="text-white " ><DashboardIcon />   Manage Product</Link><br /><br />
                 <Link to={`${url}/addProduct`} className="text-white text-center"><AddIcon /> Add Product</Link><br /><br />

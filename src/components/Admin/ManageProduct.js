@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import './ManageProduct.css'
+import './ManageProduct.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ManageProduct = () => {
     const [products, setProducts] = useState([]);
@@ -17,14 +19,23 @@ const ManageProduct = () => {
 
     const handleDelete = (id) => {
         console.log('Delete item', id);
-        fetch(`https://banana-crisp-28043.herokuapp.com/delete/${id}`,
-            {
-                method: 'DELETE'
-            })
-            .then(res => res.json())
-            .then(result => {
-              
-            })
+        axios.delete(`https://banana-crisp-28043.herokuapp.com/delete/${id}`)
+        .then((res) => {
+            console.log(res);
+            toast.warning('Delete Successfully');
+        })
+
+
+        // fetch(`http://localhost:4200/delete/${id}`,
+        //     {
+        //         method: 'DELETE'
+        //     })
+        //     .then(res => res.json())
+        //     .then(result => {
+        //         if (result) {
+        //             event.target.parentNode.display = 'none';
+        //         }
+        //     })
     }
 
     return (
