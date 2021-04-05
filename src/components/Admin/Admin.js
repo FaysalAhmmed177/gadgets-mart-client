@@ -19,8 +19,8 @@ const Admin = () => {
     let { path, url } = useRouteMatch();
     return (
         <div className="row">
-            <div className="col-md-3 Sidebar">
-                <Link to="/home" className="text-white" id="goToHome">Fresh vally</Link><br /><br />
+            <div className="col-md-3 p-4 Sidebar" style={{height: '100vh'}}>
+                <Link to="/home" className="text-white" id="goToHome">GADGETS MART</Link><br /><br />
                 <Link to={`${url}/manageProduct`} className="text-white " ><DashboardIcon />   Manage Product</Link><br /><br />
                 <Link to={`${url}/addProduct`} className="text-white text-center"><AddIcon /> Add Product</Link><br /><br />
                 <Link to={`${url}/editProduct`} className="text-white text-center"><EditIcon />  Edit Product</Link><br />
@@ -28,8 +28,9 @@ const Admin = () => {
             </div>
             <div className="col-md-9">
                 <Switch>
+                    
                     <Route path={`${path}/manageProduct`}>
-                        <ManageProduct ></ManageProduct>
+                        <ManageProduct />
                     </Route>
                     <Route path={`${path}/addProduct`}>
                         <AddProduct />

@@ -47,8 +47,8 @@ const AddProduct = () => {
     }
 
     return (
-        <div>
-            <h1>Add Product</h1>
+        <div className="container">
+            <h1 className="mt-3 mb-5">Add Product</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name">Product Name</label>
                 <input name="name" className="form-control w-50" placeholder="Enter Name" ref={register} />

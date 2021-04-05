@@ -8,17 +8,20 @@ const Home = () => {
         fetch('https://banana-crisp-28043.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setProducts(data)
             })
     }, [])
 
     return (
         <div className="container">
-            <div className="row">
-                {
-                    products.map(product => <Products product={product}></Products>)
-                }
+            <div className="row justify-content-around">
+                    {products.length === 0 &&
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                    }
+                {products.map(product => <Products product={product}></Products>)}
             </div>
         </div>
     );

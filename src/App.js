@@ -15,6 +15,7 @@ import NoMatch from './components/NoMatch/NoMatch';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Checkout from './components/Checkout/Checkout';
+import ManageProduct from './components/Admin/ManageProduct';
 
 export const UserContext = createContext();
 

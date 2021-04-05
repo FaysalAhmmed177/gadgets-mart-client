@@ -2,8 +2,8 @@ import React from 'react';
 
 const EditProduct = () => {
     return (
-        <div>
-            <h1>I'm from Edit AddProduct</h1>
+        <div className="container">
+            <h1 className="mt-3 mb-5">Edit your product</h1>
         </div>
     );
 };
