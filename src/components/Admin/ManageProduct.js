@@ -20,22 +20,10 @@ const ManageProduct = () => {
     const handleDelete = (id) => {
         console.log('Delete item', id);
         axios.delete(`https://banana-crisp-28043.herokuapp.com/delete/${id}`)
-        .then((res) => {
-            console.log(res);
-            toast.warning('Delete Successfully');
-        })
-
-
-        // fetch(`http://localhost:4200/delete/${id}`,
-        //     {
-        //         method: 'DELETE'
-        //     })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         if (result) {
-        //             event.target.parentNode.display = 'none';
-        //         }
-        //     })
+            .then((res) => {
+                console.log(res);
+                toast.warning('Delete Successfully');
+            })
     }
 
     return (

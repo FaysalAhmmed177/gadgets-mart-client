@@ -28,7 +28,6 @@ const Admin = () => {
             </div>
             <div className="col-md-9">
                 <Switch>
-                    
                     <Route path={`${path}/manageProduct`}>
                         <ManageProduct />
                     </Route>
