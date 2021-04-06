@@ -17,9 +17,10 @@ import { UserContext } from '../../App';
 const Admin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     let { path, url } = useRouteMatch();
+    console.log(url);
     return (
         <div className="row">
-            <div className="col-md-3 p-4 Sidebar" style={{height: '150vh'}}>
+            <div className="col-md-3 p-4 Sidebar" style={{ height: '150vh' }}>
                 <Link to="/home" className="text-white" id="goToHome">GADGETS MART</Link><br /><br />
                 <Link to={`${url}/manageProduct`} className="text-white " ><DashboardIcon />   Manage Product</Link><br /><br />
                 <Link to={`${url}/addProduct`} className="text-white text-center"><AddIcon /> Add Product</Link><br /><br />
@@ -27,7 +28,11 @@ const Admin = () => {
 
             </div>
             <div className="col-md-9">
+                {
+                    url == 'admin' && <ManageProduct />
+                }
                 <Switch>
+                    
                     <Route path={`${path}/manageProduct`}>
                         <ManageProduct />
                     </Route>
@@ -36,6 +41,9 @@ const Admin = () => {
                     </Route>
                     <Route path={`${path}/editProduct`}>
                         <EditProduct />
+                    </Route>
+                    <Route exact path={`${path}`}>
+                        <ManageProduct />
                     </Route>
                 </Switch>
 
